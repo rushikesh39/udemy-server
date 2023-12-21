@@ -13,10 +13,7 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  phone: {
-    type: Number
-  },
-  courses: []
+ 
 });
 
 const User = mongoose.model("users", UserSchema);
