@@ -12,7 +12,7 @@ const signup = async (req, res) => {
   console.log(details);
   const hashpassword = bcrypt.hashSync(details.password, saltround);
   const temp = {
-    name: details.userName,
+    name: details.name,
     email: details.email,
     password: hashpassword,
   }
