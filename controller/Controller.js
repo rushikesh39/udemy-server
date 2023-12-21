@@ -25,7 +25,7 @@ const signup = async (req, res) => {
 
     const result = await User.create(temp);
     const token = jwt.sign(
-      { email: details.email, userName: details.userName },
+      { email: details.email, name: details.name },
       secretkey,
       {
         expiresIn: "2d",
@@ -47,7 +47,7 @@ const login = async (req, res) => {
   if (user) {
     const password = bcrypt.compareSync(data.password, user.password);
     if (password) {
-      const token = jwt.sign({ email: data.email,userName:user.userName }, secretkey, {expiresIn: "5d"});
+      const token = jwt.sign({ email: data.email,name:user.name }, secretkey, {expiresIn: "5d"});
       return res.send({ msg: "Success", token: token });
     } else {
       return res.send({ msg: "password is wrong" });
